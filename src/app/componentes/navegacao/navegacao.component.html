@@ -1,0 +1,24 @@
+<div class="navegacao">
+  <div [ngClass]="classeAvanco"></div>
+  <p>Modelo de teste de ajuste CSS</p>
+  <div class="linha">
+    <div class="coluna1">
+      <div [ngClass]="classeBotao1" (click)="acaoDosBotoes('coluna1')">
+        <span *ngIf="classeBotao1 === 'botao-ativo'">x</span>
+      </div>
+      <div class="texto">Primeiro Passo</div>
+    </div>
+    <div class="coluna2">
+      <div [ngClass]="classeBotao2" (click)="acaoDosBotoes('coluna2')">
+        <span *ngIf="classeBotao2 === 'botao-ativo'">x</span>
+      </div>
+      <div class="texto">Segundo Passo</div>
+    </div>
+    <div class="coluna3">
+      <div [ngClass]="classeBotao3" (click)="acaoDosBotoes('coluna3')">
+        <span *ngIf="classeBotao3 === 'botao-ativo'">x</span>
+      </div>
+      <div class="texto">Terceiro Passo</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,163 @@
+@mixin padding-coluna {
+  position: relative;
+  width: auto;
+  height: auto;
+}
+
+@mixin botao {
+  position: relative;
+  border-radius: 50%;
+  background-color: #ccc;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 5px -20px;
+  left: 50%;
+  cursor: pointer;
+}
+
+@mixin texto {
+  position: relative;
+  width: auto;
+  font-size: 0.75em;
+}
+
+@mixin avanco {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  margin-left: -35%;
+  width: 70%;
+  height: 10px;
+  background-color: #ddd;
+  opacity: .8;
+
+  @media (max-width: 600px) {
+    width: 90%;
+    margin-left: -45%;
+  }
+}
+
+@mixin tela-menor-coluna1 {
+  margin: 0 0 5px 0;
+  left: 0;
+}
+
+@mixin tela-menor-coluna3 {
+  margin: 0 0 5px 40px;
+  right: 0;
+}
+
+.botao-ativo {
+  @include botao;
+  margin: -7px 0 0 -25px;
+  background-color: #060;
+  padding: 16px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.botao-inativo {
+  @include botao;
+}
+
+.botao-completo {
+  @include botao;
+  background-color: #060;
+}
+
+.texto {
+  @include texto;
+}
+
+.coluna1 {
+  @include padding-coluna;
+  grid-area: coluna1;
+}
+
+.coluna2 {
+  @include padding-coluna;
+  grid-area: coluna2;
+}
+
+.coluna3 {
+  @include padding-coluna;
+  grid-area: coluna3;
+}
+
+.navegacao {
+  position: relative;
+
+  p {
+    margin: 0;
+  }
+
+  .avanco {
+    @include avanco;
+  }
+
+  .avanco-bicolor {
+    @include avanco;
+    background-image: linear-gradient(to right, #060 50%, #ddd 50% 100%);
+  }
+
+  .avanco-completo {
+    @include avanco;
+    background-color: #060;
+  }
+
+  .linha {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    grid-template-areas: "coluna1 coluna2 coluna3";
+    text-align: center;
+    align-items: center;
+    margin: 20px 0 5px 0;
+    background-color: #fff;
+    border-radius: 3px;
+    height: 100px;
+    z-index: 1;
+
+    @media (max-width: 600px) {
+      .coluna1 {
+        .botao-ativo {
+          margin: -7px 0 0 0;
+          left: 0;
+        }
+        
+        .botao-inativo {
+          @include tela-menor-coluna1;
+        }
+
+        .botao-completo {
+          @include tela-menor-coluna1;
+        }
+
+        .texto {
+          text-align: left;
+        }
+      }
+
+      .coluna3 {
+        .botao-ativo {
+          margin: -7px 0 0 30px;
+          right: 0;
+        }
+        
+        .botao-inativo {
+          @include tela-menor-coluna3;
+        }
+
+        .botao-completo {
+          @include tela-menor-coluna3;
+        }
+
+        .texto {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

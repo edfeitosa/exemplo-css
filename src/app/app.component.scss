@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border: 1px solid #666;
+  position: relative;
+  width: auto;
+  border-radius: 5px;
+
+  h1 {
+    font-size: 1.5em;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+}
